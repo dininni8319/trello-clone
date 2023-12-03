@@ -12,12 +12,14 @@ export const findItemIndexById = <T extends Item>(
   return items.findIndex((item: T) => item.id === id)
 }
 
-export const moveItem = <T>(array: T[], from: number, to: number) => {
+export const moveItem = <T>(array: T[], from: number, to: number): T[] => {
   const startIndex = to < 0 ? array.length + to : to;
-  const item = array.splice(from, 1)[0]
-  array.splice(startIndex, 0, item)
-  return array
-}
+  const newArray = [...array];
+  const [removedItem] = newArray.splice(from, 1);
+  newArray.splice(startIndex, 0, removedItem);
+  return newArray;
+};
+
 
 // isHidden is a function that takes 4 arguments and returns a boolean
 export const isHidden = ( 

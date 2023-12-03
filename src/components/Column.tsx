@@ -88,10 +88,13 @@ export const Column = (
       <ColumnTitle>{title}</ColumnTitle>
       {
 
-        state.lists[index].tasks.map(task => (
+        state?.lists[index]?.tasks.map(task => (
           <Card 
             text={task.text} 
-            key={task.id} 
+            key={task.id}
+            id={task.id}
+            columnId={id}
+            index={index} 
           />
         ))
       }

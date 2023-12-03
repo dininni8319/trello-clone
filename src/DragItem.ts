@@ -5,4 +5,12 @@ export type ColumnDragITem = {
   type: 'COLUMN'
 }
 
-export type DragItem = ColumnDragITem
+export type CardDragItem = {
+  index: number
+  id: string
+  columnId: string
+  text: string
+  type: 'CARD'
+}
+
+export type DragItem = CardDragItem | ColumnDragITem
